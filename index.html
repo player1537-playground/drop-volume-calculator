@@ -1,0 +1,282 @@
+<!-- ################################################################ -->
+
+<h2>Drop Volume Calculator</h2>
+<form name="Calc">
+  <table cellpadding="5" cellspacing="5" class="stripped">
+    <thead>
+      <tr class="right">
+        <th class="right" width="15%"></th>
+        <th class="right" width="10%">a (&#8491;)</th>
+        <th class="right" width="10%">b (&#8491;)</th>
+        <th class="right" width="10%">c (&#8491;)</th>
+        <th class="right" width="10%">&alpha; (&deg;)</th>
+        <th class="right" width="10%">&beta; (&deg;)</th>
+        <th class="right" width="10%">&gamma; (&deg;)</th>
+        <th class="right" width="25%">Unit Cell Volume (&#8491;<sup>3</sup>)</th>
+      </tr>
+    </thead>
+
+    <tbody align="right">
+      <tr>
+        <td><span class="darkRed emphasis big">Custom Values</span></td>
+        <td><input id="SideA" type="number" style="max-width:5em" value="80" placeholder="80"/></td>
+        <td><input id="SideB" type="number" style="max-width:5em" value="90" placeholder="90"/></td>
+        <td><input id="SideC" type="number" style="max-width:5em" value="100" placeholder="100"/></td>
+        <td><input id="Alpha" type="number" style="max-width:5em" value="90" placeholder="90"/></td>
+        <td><input id="Beta" type="number" style="max-width:5em" value="90" placeholder="90"/></td>
+        <td><input id="Gamma" type="number" style="max-width:5em" value="90" placeholder="90"/></td>
+        <td><input id="CellVolume" type="number" style="max-width:5em;background-color:#eee" value="72000" readonly/></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <table cellpadding="5" cellspacing="5" class="stripped">
+    <thead>
+      <tr class="right">
+        <th class="right" width="15%"></th>
+        <th class="right" width="10%">Space group</th>
+        <th class="right" width="10%">Number of asymmetric units</th>
+        <th class="right" width="10%">Number of protein copies in asymmetric unit</th>
+        <th class="right" width="10%">Target crystal volume (mm<sup>3</sup>)</th>
+        <th class="right" width="10%">Protein concentration (mg/mL)</th>
+        <th class="right" width="10%">Protein molecule weight (Da)</th>
+        <th class="right" width="25%">Min volume to add (uL)</th>
+      </tr>
+    </thead>
+
+    <tbody align="right">
+      <tr>
+        <td><span class="darkRed emphasis big">Custom Values</span></td>
+        <td><select id="SpaceGroup" class="form-control">
+          <option value="1">P 1</option>
+          <option value="2">P 2</option>
+          <option value="2">P 21</option>
+          <option value="4">C 2</option>
+          <option value="4">P 2 2 2</option>
+          <option value="4">P 2 2 21</option>
+          <option value="4">P 21 21 2</option>
+          <option value="4" selected>P 21 21 21</option>
+          <option value="8">C 2 2 2</option>
+          <option value="8">C 2 2 21</option>
+          <option value="16">F 2 2 2</option>
+          <option value="8">I 2 2 2</option>
+          <option value="8">I 21 21 21</option>
+          <option value="4">P 4</option>
+          <option value="4">P 41</option>
+          <option value="4">P 42</option>
+          <option value="4">P 43</option>
+          <option value="8">I 4</option>
+          <option value="8">I 41</option>
+          <option value="8">P 4 2 2</option>
+          <option value="8">P 4 21 2</option>
+          <option value="8">P 41 2 2</option>
+          <option value="8">P 41 21 2</option>
+          <option value="8">P 42 2 2</option>
+          <option value="8">P 42 21 2</option>
+          <option value="8">P 43 2 2</option>
+          <option value="8">P 43 21 2</option>
+          <option value="16">I 4 2 2</option>
+          <option value="16">I 41 2 2</option>
+          <option value="3">P 3</option>
+          <option value="3">P 31</option>
+          <option value="3">P 32</option>
+          <option value="9">R 3</option>
+          <option value="6">P 3 1 2</option>
+          <option value="6">P 3 2 1</option>
+          <option value="6">P 31 1 2</option>
+          <option value="6">P 31 2 1</option>
+          <option value="6">P 32 1 2</option>
+          <option value="6">P 32 2 1</option>
+          <option value="18">R 3 2</option>
+          <option value="6">P 6</option>
+          <option value="6">P 61</option>
+          <option value="6">P 65</option>
+          <option value="6">P 62</option>
+          <option value="6">P 64</option>
+          <option value="6">P 63</option>
+          <option value="12">P 6 2 2</option>
+          <option value="12">P 61 2 2</option>
+          <option value="12">P 65 2 2</option>
+          <option value="12">P 62 2 2</option>
+          <option value="12">P 64 2 2</option>
+          <option value="12">P 63 2 2</option>
+          <option value="12">P 2 3</option>
+          <option value="48">F 2 3</option>
+          <option value="24">I 2 3</option>
+          <option value="12">P 21 3</option>
+          <option value="24">I 21 3</option>
+          <option value="24">P 4 3 2</option>
+          <option value="24">P 42 3 2</option>
+          <option value="96">F 4 3 2</option>
+          <option value="96">F 41 3 2</option>
+          <option value="48">I 4 3 2</option>
+          <option value="24">P 43 3 2</option>
+          <option value="24">P 41 3 2</option>
+          <option value="48">I 41 3 2</option>
+        </select></td>
+
+        <td><input id="NumAsymmetricUnits" type="number" style="max-width:5em;background-color:#eee" readonly/></td>
+        <td><input id="NumProteinCopies" type="number" style="max-width:5em" value="1" placeholder="1" /></td>
+        <td><input id="TargetCrystalVolume" type="number" style="max-width:5em" value="0.5" placeholder="0.5" /></td>
+        <td><input id="ProteinConcentration" type="number" style="max-width:5em" value="10" placeholder="10" /></td>
+        <td><input id="ProteinMolecularWeight" type="number" style="max-width:5em" value="25000" placeholder="25000" /></td>
+        <td><input id="DropVolume" type="number" style="max-width:5em;background-color:#eee" value="" readonly /></td>
+
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<script>
+(function($) {
+  var elSideA = $('#SideA'),
+      elSideB = $('#SideB'),
+      elSideC = $('#SideC'),
+      elAlpha = $('#Alpha'),
+      elBeta = $('#Beta'),
+      elGamma = $('#Gamma'),
+      elCellVolume = $('#CellVolume'),
+      elSpaceGroup = $('#SpaceGroup'),
+      elNumAsymmetricUnits = $('#NumAsymmetricUnits'),
+      elNumProteinCopies = $('#NumProteinCopies'),
+      elTargetCrystalVolume = $('#TargetCrystalVolume'),
+      elProteinConcentration = $('#ProteinConcentration'),
+      elProteinMolecularWeight = $('#ProteinMolecularWeight'),
+      elDropVolume = $('#DropVolume');
+
+  var depCellVolume = [
+    elSideA,
+    elSideB,
+    elSideC,
+    elBeta,
+    elGamma,
+  ];
+  $(depCellVolume.map(d=>d.get(0))).bind('input', function() {
+    var SideA = +elSideA.val(),
+        SideB = +elSideB.val(),
+        SideC = +elSideC.val(),
+        Alpha = +elAlpha.val(),
+        Beta = +elBeta.val(),
+        Gamma = +elGamma.val(),
+        Pi = 3.1415926535,
+        CellVolume = 1,
+        ToSqrt = 1,
+        ToAddBack = 1;
+
+    ToAddBack *= 2;
+    ToAddBack *= Math.cos(Alpha / 180 * Pi);
+    ToAddBack *= Math.cos(Beta / 180 * Pi);
+    ToAddBack *= Math.cos(Gamma / 180 * Pi);
+
+    ToSqrt -= Math.pow(Math.cos(Alpha / 180 * Pi), 2);
+    ToSqrt -= Math.pow(Math.cos(Beta / 180 * Pi), 2);
+    ToSqrt -= Math.pow(Math.cos(Gamma / 180 * Pi), 2)
+    ToSqrt += ToAddBack;
+
+    CellVolume *= SideA;
+    CellVolume *= SideB;
+    CellVolume *= SideC;
+    CellVolume *= Math.sqrt(ToSqrt);
+
+    /* Above "cleans up" the original expression which came from the original
+       spreadsheet.
+
+       var CellVolume = SideA
+     * SideB
+     * SideC
+     * Math.sqrt(
+       1
+       - Math.pow(Math.cos(Alpha/180*Pi), 2)
+       - Math.pow(Math.cos(Beta/180*Pi), 2)
+       - Math.pow(Math.cos(Gamma/180*Pi),2)
+       + (
+       2
+     * Math.cos(Alpha/180*Pi)
+     * Math.cos(Beta/180*Pi)
+     * Math.cos(Gamma/180*Pi)
+       )
+       );
+     */
+
+    elCellVolume.val(CellVolume).trigger('input');
+  }).trigger('input');
+
+  var depNumAsymmetricUnits = [
+    elSpaceGroup,
+  ];
+  $(depNumAsymmetricUnits.map(d=>d.get(0))).bind('input', function() {
+    var SpaceGroup = +elSpaceGroup.val();
+
+    var NumAsymmetricUnits = SpaceGroup;
+
+    elNumAsymmetricUnits.val(NumAsymmetricUnits).trigger('input');
+  }).trigger('input');
+
+  var depDropVolume = [
+    elNumAsymmetricUnits,
+    elNumProteinCopies,
+    elTargetCrystalVolume,
+    elProteinConcentration,
+    elProteinMolecularWeight,
+    elCellVolume,
+  ];
+  $(depDropVolume.map(d=>d.get(0))).bind('input', function() {
+    var NumAsymmetricUnits = +elNumAsymmetricUnits.val(),
+        NumProteinCopies = +elNumProteinCopies.val(),
+        TargetCrystalVolume = +elTargetCrystalVolume.val(),
+        ProteinConcentration = +elProteinConcentration.val(),
+        ProteinMolecularWeight = +elProteinMolecularWeight.val(),
+        CellVolume = +elCellVolume.val(),
+        AngstromCubedToMillimetersCubed = Math.pow(10, -21),
+        MilligramToMicroLiters = Math.pow(10, 6),
+        AvogadrosNumber = 6.02 * Math.pow(10, 23);
+
+    var IndividualMoleculeWeight = ProteinMolecularWeight / AvogadrosNumber,
+        CellVolumeMmCubed = CellVolume * AngstromCubedToMillimetersCubed,
+        VolumeRatio = TargetCrystalVolume / CellVolumeMmCubed,
+        DropVolume = 1;
+
+    DropVolume *= VolumeRatio;
+    DropVolume *= NumProteinCopies;
+    DropVolume *= NumAsymmetricUnits;
+    DropVolume *= IndividualMoleculeWeight;
+    DropVolume /= ProteinConcentration;
+    DropVolume *= MilligramToMicroLiters;
+    DropVolume = Math.round(DropVolume);
+
+    /* The above "cleans up" the original expression from the spreadsheet:
+
+       var DropVolume = Math.round(
+       (
+       TargetCrystalVolume
+       / (
+       CellVolume
+     * Math.pow(10, -21)
+       )
+     * NumProteinCopies
+     * NumAsymmetricUnits
+     * (
+       ProteinMolecularWeight
+       / (
+       6.02
+     * Math.pow(10,23)
+       )
+       )
+       )
+       / ProteinConcentration
+     * Math.pow(10,6)
+       );
+
+     */
+
+    elDropVolume.val(DropVolume).trigger('input');
+
+  }).trigger('input');
+
+
+})(jQuery);
+
+</script>
+
+<!-- ################################################################ -->
