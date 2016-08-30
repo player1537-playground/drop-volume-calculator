@@ -180,24 +180,26 @@
     CellVolume *= Math.sqrt(ToSqrt);
 
     /* Above "cleans up" the original expression which came from the original
-       spreadsheet.
+       spreadsheet;
 
-       var CellVolume = SideA
-     * SideB
-     * SideC
-     * Math.sqrt(
-       1
-       - Math.pow(Math.cos(Alpha/180*Pi), 2)
-       - Math.pow(Math.cos(Beta/180*Pi), 2)
-       - Math.pow(Math.cos(Gamma/180*Pi),2)
-       + (
-       2
-     * Math.cos(Alpha/180*Pi)
-     * Math.cos(Beta/180*Pi)
-     * Math.cos(Gamma/180*Pi)
-       )
-       );
-     */
+      var CellVolume = (
+        SideA
+        * SideB
+        * SideC
+        * Math.sqrt(
+          1
+          - Math.pow(Math.cos(Alpha/180*Pi), 2)
+          - Math.pow(Math.cos(Beta/180*Pi), 2)
+          - Math.pow(Math.cos(Gamma/180*Pi),2)
+          + (
+            2
+            * Math.cos(Alpha/180*Pi)
+            * Math.cos(Beta/180*Pi)
+            * Math.cos(Gamma/180*Pi)
+          )
+        )
+      );
+    */
 
     elCellVolume.val(CellVolume).trigger('input');
   }).trigger('input');
@@ -245,29 +247,29 @@
     DropVolume *= MilligramToMicroLiters;
     DropVolume = Math.round(DropVolume);
 
-    /* The above "cleans up" the original expression from the spreadsheet:
 
-       var DropVolume = Math.round(
-       (
-       TargetCrystalVolume
-       / (
-       CellVolume
-     * Math.pow(10, -21)
-       )
-     * NumProteinCopies
-     * NumAsymmetricUnits
-     * (
-       ProteinMolecularWeight
-       / (
-       6.02
-     * Math.pow(10,23)
-       )
-       )
-       )
-       / ProteinConcentration
-     * Math.pow(10,6)
-       );
+    /* The above "cleans up" the original expression from the spreadsheet
 
+      var DropVolume = Math.round(
+        (
+          TargetCrystalVolume
+          / (
+            CellVolume
+            * Math.pow(10, -21)
+          )
+          * NumProteinCopies
+          * NumAsymmetricUnits
+          * (
+            ProteinMolecularWeight
+            / (
+              6.02
+              * Math.pow(10,23)
+            )
+          )
+        )
+        / ProteinConcentration
+        * Math.pow(10,6)
+      );
      */
 
     elDropVolume.val(DropVolume).trigger('input');
